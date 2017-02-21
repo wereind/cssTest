@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>鼠标控制透明度</title>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .box{
+                margin: 10px auto;
+                border: 1px solid black;
+                width: 750px;
+                overflow: hidden;
+            }
+            ul li{
+                list-style: none;
+                float: left;
+                border: 1px solid #ccc;
+                margin: 10px;
+            }
+            ul li img{
+                vertical-align: middle;
+                opacity: 0.5;
+            }
+            ul li img:hover{
+                cursor: crosshair;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <ul>
+                <li><img src="images/1.jpg" alt=""></li>
+                <li><img src="images/2.jpg" alt=""></li>
+                <li><img src="images/3.jpg" alt=""></li>
+                <li><img src="images/4.jpg" alt=""></li>
+                <li><img src="images/5.jpg" alt=""></li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var ul = document.getElementsByTagName('ul')[0];
+            ul.addEventListener("mouseover",function(e) {
+                var e = e || window.event,
+                    src = e.target || e.srcElement;
+                if (src.nodeName == "IMG") {
+                    e.target.style.opacity = "1";
+                }
+            });
+            ul.addEventListener("mouseout",function(e) {
+                var e = e || window.event,
+                    src = e.target || e.srcElement;
+                if (e.target && e.target.nodeName=="IMG") {
+                    e.target.style.opacity = "0.5";
+                }
+            })
+
+        </script>
+    </body>
+</html>

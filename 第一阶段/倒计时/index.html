@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <div class="box">
+            <p>
+                <span id="mins">01</span>分钟
+                <span id="second">40</span>秒
+            </p>
+            <button type="button" name="button">启动</button>
+        </div>
+        <script type="text/javascript">
+
+            var btn = document.getElementsByTagName('button')[0],
+                minsSpan = document.getElementById('mins'),
+                secondSpan = document.getElementById('second');
+            btn.onclick = function(){
+                this.className == "" ? (timer = setInterval(updateTime,1000)) : clearInterval(timer);
+                this.className = this.className == "" ? "cancel" : "";
+                this.innerHTML = this.className == "" ? "启动" : "取消";
+            }
+
+            function updateTime() {
+                var oRemain = parseInt(minsSpan.innerHTML)*60 + parseInt(secondSpan.innerHTML);
+                if (oRemain <= 0) {
+                    clearInterval(timer);
+                    return;
+                }
+                oRemain--;
+                minsSpan.innerHTML = format(oRemain,'m');
+                secondSpan.innerHTML = format(oRemain,'s');
+            }
+
+            function format(a,str) {
+                if (str == "m") {
+                    var str = parseInt(a/60);
+                } else if (str == "s") {
+                    var str = parseInt(a%60);
+                }
+                return str<10 ? ('0'+str) : str;
+            }
+        </script>
+    </body>
+</html>
