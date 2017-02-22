@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            *{margin: 0;padding: 0;}
+            #box{
+                border: 1px dotted #333;
+                background: #f0f0f0;
+                margin: 10px;
+                padding: 10px;
+            }
+            #box p{
+                font: 12px/1.5 Courier New;
+                color: green;
+                line-height: 1.5;
+            }
+            #moveDiv{
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: absolute;
+                left: 500px;
+                top: 100px;
+                transition: 0.2s;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <p>红色方块为键盘操作区域，您可以进行如下操作：</p>
+            <br />
+            <p>上：↑ 下：↓ 左：← 右：→</p>
+            <br />
+            <p>Ctrl + 1 : 背景变为绿色</p>
+            <p>Ctrl + 2 : 背景变为黄色</p>
+            <p>Ctrl + 3 : 背景变为蓝色</p>
+            <p>Ctrl + ↑ : 放大</p>
+            <p>Ctrl + ↓ : 缩小</p>
+        </div>
+        <div id="moveDiv"></div>
+        <script type="text/javascript">
+            var div = document.getElementById('moveDiv');
+            var left = div.offsetLeft,
+                top = div.offsetTop;
+            document.addEventListener('keydown',function(e) {
+                var e = e || window.event;
+                var keyNum = e.which || e.keyCode;
+                switch (keyNum) {
+                    case 37:
+                        toLeft();
+                        break;
+                    default:
+
+                }
+            })
+            function toLeft() {
+                var left = div.offsetLeft;
+                div.style.left = left - 10 + "px";
+                console.log(1);
+            }
+        </script>
+    </body>
+</html>
