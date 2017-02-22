@@ -10,7 +10,7 @@
 ### 2.倒计时时钟
 
 效果图：<br>
-![](https://github.com/wereind/cssTest/raw/master/first/countDown/resultShow/1.png) <br>
+![](https://github.com/wereind/cssTest/raw/master/first/countDown/resultShow/1.png)
 ![](https://github.com/wereind/cssTest/raw/master/first/countDown/resultShow/2.png)
 
 ### 3.星级评分系统
